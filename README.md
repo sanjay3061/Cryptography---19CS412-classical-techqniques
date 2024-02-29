@@ -404,54 +404,69 @@ Testing algorithm with different key values.
 
 ## PROGRAM:
 ```
-#include<stdio.h>
-#include<conio.h>
-#include<string.h>
-int main()
-{
-int i,j,k,l;
-char a[20],c[20],d[20];
-printf("\n\t\t RAIL FENCE TECHNIQUE");
-printf("\n\nEnter the input string : ");
-gets(a);
-l=strlen(a);
 
-for(i=0,j=0;i<l;i++)
-{
-if(i%2==0)
-c[j++]=a[i];
-}
-for(i=0;i<l;i++)
-{
-if(i%2==1)
-c[j++]=a[i];
-}
-c[j]='\0';
-printf("\nCipher text after applying rail fence :");
-printf("\n%s",c);
+## ENCRYPTION
 
-if(l%2==0)
-k=l/2;
-else
-k=(l/2)+1;
-for(i=0,j=0;i<k;i++)
-{
-d[j]=c[i];
-j=j+2;
-}
-for(i=k,j=1;i<l;i++)
-{
-d[j]=c[i];
-j=j+2;
-}
-d[l]='\0';
-printf("\nText after decryption : ");
-printf("%s",d);
-return 0;
-}
+def rail_fence_encrypt(plain_text, key):
+    encrypted_text = ""
+    rail = [''] * key
+    direction = False
+    row = 0
+
+    for char in plain_text:
+        rail[row] += char
+        if row == 0 or row == key - 1:
+            direction = not direction
+        row += 1 if direction else -1
+
+    for i in range(key):
+        encrypted_text += rail[i]
+
+    return encrypted_text
+
+## DECRYPTION
+
+def rail_fence_decrypt(encrypted_text, key):
+    decrypted_text = ""
+    rail = [''] * key
+    direction = False
+    row = 0
+    index = 0
+
+    for char in encrypted_text:
+        rail[row] += '*'
+        if row == 0 or row == key - 1:
+            direction = not direction
+        row += 1 if direction else -1
+
+    for i in range(key):
+        for j in range(len(rail[i])):
+            if rail[i][j] == '*' and index < len(encrypted_text):
+                rail[i] = rail[i][:j] + encrypted_text[index] + rail[i][j + 1:]
+                index += 1
+
+    row = 0
+    direction = False
+    for i in range(len(encrypted_text)):
+        decrypted_text += rail[row][0]
+        rail[row] = rail[row][1:]
+        if row == 0 or row == key - 1:
+            direction = not direction
+        row += 1 if direction else -1
+
+    return decrypted_text
+
+plain_text = "SANJAY"
+key = 3
+encrypted_text = rail_fence_encrypt(plain_text, key)
+print("Original Text:", plain_text)
+print("Encrypted Text:", encrypted_text)
+
+decrypted_text = rail_fence_decrypt(encrypted_text, key)
+print("Decrypted Text:", decrypted_text)
 ```
 ## OUTPUT:
-![image](https://github.com/sanjay3061/Cryptography---19CS412-classical-techqniques/assets/121215929/f7288e4f-f7bd-489f-ba7d-566c094f23ee)
+![image](https://github.com/sanjay3061/Cryptography---19CS412-classical-techqniques/assets/121215929/045f7b42-7f54-4510-ba68-73fdfb3a0504)
 
 ## RESULT:
 The program is executed successfully
