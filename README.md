@@ -232,53 +232,70 @@ Testing algorithm with different key values.
 
 ## PROGRAM:
 ```
-#include<stdio.h>
-#include<conio.h>
-#include<string.h>
-int main(){
-unsigned int a[3][3]={{6,24,1},{13,16,10},{20,17,15}};
-unsigned int b[3][3]={{8,5,10},{21,8,21},{21,12,8}};
-int i,j, t=0;
-unsigned int c[20],d[20];
-char msg[20];
-printf("Enter plain text: ");
-scanf("%s",msg);
-for(i=0;i<strlen(msg);i++)
-{
-c[i]=msg[i]-65;
-unsigned int a[3][3]={{6,24,1},{13,16,10},{20,17,15}};
-unsigned int b[3][3]={{8,5,10},{21,8,21},{21,12,8}};
-printf("%d ",c[i]);
-}
-for(i=0;i<3;i++)
-{ t=0;
-for(j=0;j<3;j++)
-{
-t=t+(a[i][j]*c[j]);
-}
-d[i]=t%26;
-}
-printf("\nEncrypted Cipher Text :");
-for(i=0;i<3;i++)
-printf(" %c",d[i]+65);
-for(i=0;i<3;i++)
-{
-t=0;
-for(j=0;j<3;j++)
-{
-t=t+(b[i][j]*d[j]);
-}
-c[i]=t%26;
-}
-printf("\nDecrypted Cipher Text :");
-for(i=0;i<3;i++)
-printf(" %c",c[i]+65);
-getch();
-return 0;
-}
+import numpy as np
+
+def generate_key_matrix(key):
+    key = key.upper().replace(" ", "")
+    n = int(len(key) ** 0.5)
+    if n * n != len(key):
+        raise ValueError("Key length must be a perfect square")
+    key_matrix = np.array([ord(char) - ord('A') for char in key]).reshape(n, n)
+    return key_matrix
+
+def generate_inverse_key_matrix(key_matrix):
+    determinant = np.linalg.det(key_matrix)
+    inverse_matrix = np.linalg.inv(key_matrix)
+    adjugate_matrix = np.round(inverse_matrix * determinant).astype(int)
+    det_inv = pow(int(determinant), -1, 26)
+    inverse_key_matrix = (adjugate_matrix * det_inv) % 26
+    return inverse_key_matrix
+
+## ENCRYPTION
+
+def hill_encrypt(plain_text, key_matrix):
+    plain_text = plain_text.upper().replace(" ", "").replace("J", "I")
+    n = key_matrix.shape[0]
+    while len(plain_text) % n != 0:
+        plain_text += 'X'
+    plain_text = [ord(char) - ord('A') for char in plain_text]
+    plain_matrix = np.array(plain_text).reshape(-1, n)
+    encrypted_matrix = np.dot(plain_matrix, key_matrix) % 26
+    encrypted_text = ""
+    for row in encrypted_matrix:
+        for char in row:
+            encrypted_text += chr(char + ord('A'))
+    return encrypted_text
+
+## DECRYPTION
+
+def hill_decrypt(encrypted_text, key_matrix):
+    n = key_matrix.shape[0]
+    inverse_key_matrix = generate_inverse_key_matrix(key_matrix)
+    encrypted_text = encrypted_text.upper().replace(" ", "").replace("J", "I")
+    encrypted_text = [ord(char) - ord('A') for char in encrypted_text]
+    encrypted_matrix = np.array(encrypted_text).reshape(-1, n)
+    decrypted_matrix = np.dot(encrypted_matrix, inverse_key_matrix) % 26
+    decrypted_text = ""
+    for row in decrypted_matrix:
+        for char in row:
+            decrypted_text += chr(char + ord('A'))
+    return decrypted_text
+
+key = "HILL"
+plaintext = "SANJAY"
+key_matrix = generate_key_matrix(key)
+
+encrypted_text = hill_encrypt(plaintext, key_matrix)
+print("Plaintext:", plaintext)
+print("Encrypted text:", encrypted_text)
+
+
+decrypted_text = hill_decrypt(encrypted_text, key_matrix)
+print("Decrypted text:", decrypted_text)
+
 ```
 ## OUTPUT:
-![Screenshot 2024-02-29 181124](https://github.com/sanjay3061/Cryptography---19CS412-classical-techqniques/assets/121215929/4b655394-b915-41cb-b26e-d34eda805007)
+![image](https://github.com/sanjay3061/Cryptography---19CS412-classical-techqniques/assets/121215929/b3b133bc-ca5c-42fe-adcd-058b165e6f79)
 
 ## RESULT:
 The program is executed successfully
@@ -308,67 +325,7 @@ Testing algorithm with different key values.
 
 ## PROGRAM:
 ```
-#include <stdio.h>
-#include<conio.h>
-#include <ctype.h>
-#include <string.h>
-void encipher();
-void decipher();
-int main()
-{
-int choice;
-while(1)
-{
-printf("\n\nEnter Your Choice : ");
-scanf("%d",&choice);
-if(choice == 3)
-exit(0);
-else if(choice == 1)
-encipher();
-else if(choice == 2)
-decipher();
-else
-printf("Please Enter Valid Option.");
-}
-}
-void encipher()
-{
-unsigned int i,j;
-char input[50],key[10];
-printf("\n\nEnter Plain Text: ");
-scanf("%s",input);
-printf("\nEnter Key Value: ");
-scanf("%s",key);
-printf("\nResultant Cipher Text: ");
-for(i=0,j=0;i<strlen(input);i++,j++)
-{
-if(j>=strlen(key))
-{ j=0;
-}
-printf("%c",65+(((toupper(input[i])-65)+(toupper(key[j])-
-65))%26));
-}}
-void decipher()
-{
-unsigned int i,j;
-char input[50],key[10];
-int value;
-printf("\n\nEnter Cipher Text: ");
-scanf("%s",input);
-printf("\n\nEnter the key value: ");
-scanf("%s",key);
-for(i=0,j=0;i<strlen(input);i++,j++)
-{
-if(j>=strlen(key))
-{ j=0; }
-value = (toupper(input[i])-64)-(toupper(key[j])-64);
-if( value < 0)
-{ value = value * -1;
-}
-printf("%c",65 + (value % 26));
-}
-return 0;
-}
+
 ```
 ## OUTPUT:
 ![image](https://github.com/sanjay3061/Cryptography---19CS412-classical-techqniques/assets/121215929/28df34bd-9b1d-4781-a9d0-89b6be2ffcd8)
