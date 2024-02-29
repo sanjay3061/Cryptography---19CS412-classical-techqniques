@@ -23,6 +23,7 @@ Implementation using C or pyhton code
 Testing algorithm with different key values. 
 
 ## PROGRAM:
+'''
 #include<stdio.h>
 #include <string.h>
 #include<conio.h>
@@ -59,6 +60,7 @@ printf("%c",plain[i]);
 }
 return 0;
 }
+'''
 ## OUTPUT:
 ![Screenshot 2024-02-29 180234](https://github.com/sanjay3061/Cryptography---19CS412-classical-techqniques/assets/121215929/e5aae082-5a84-432a-8f5a-3f66391ccf55)
 
