@@ -6,7 +6,7 @@ Caeser Cipher using with different key values
 
 # AIM:
 
-To develop a simple C program to implement Caeser Cipher.
+To develop a simple python program to implement Caeser Cipher.
 
 ## DESIGN STEPS:
 
@@ -16,7 +16,7 @@ Design of Caeser Cipher algorithnm
 
 ### Step 2:
 
-Implementation using C or pyhton code
+Implementation using pyhton code
 
 ### Step 3:
 
@@ -95,7 +95,7 @@ Playfair Cipher using with different key values
 
 # AIM:
 
-To develop a simple C program to implement PlayFair Cipher.
+To develop a simple python program to implement PlayFair Cipher.
 
 ## DESIGN STEPS:
 
@@ -105,7 +105,7 @@ Design of PlayFair Cipher algorithnm
 
 ### Step 2:
 
-Implementation using C or pyhton code
+Implementation using pyhton code
 
 ### Step 3:
 
@@ -214,7 +214,7 @@ Hill Cipher using with different key values
 
 # AIM:
 
-To develop a simple C program to implement Hill Cipher.
+To develop a simple python program to implement Hill Cipher.
 
 ## DESIGN STEPS:
 
@@ -224,7 +224,7 @@ Design of Hill Cipher algorithnm
 
 ### Step 2:
 
-Implementation using C or pyhton code
+Implementation using pyhton code
 
 ### Step 3:
 
@@ -307,7 +307,7 @@ Vigenere Cipher using with different key values
 
 # AIM:
 
-To develop a simple C program to implement Vigenere Cipher.
+To develop a simple python program to implement Vigenere Cipher.
 
 ## DESIGN STEPS:
 
@@ -317,7 +317,7 @@ Design of Vigenere Cipher algorithnm
 
 ### Step 2:
 
-Implementation using C or pyhton code
+Implementation using pyhton code
 
 ### Step 3:
 
@@ -386,7 +386,7 @@ Rail Fence Cipher using with different key values
 
 # AIM:
 
-To develop a simple C program to implement Rail Fence Cipher.
+To develop a simple python program to implement Rail Fence Cipher.
 
 ## DESIGN STEPS:
 
@@ -396,7 +396,7 @@ Design of Rail Fence Cipher algorithnm
 
 ### Step 2:
 
-Implementation using C or pyhton code
+Implementation using pyhton code
 
 ### Step 3:
 
