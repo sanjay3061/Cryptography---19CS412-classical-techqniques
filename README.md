@@ -23,7 +23,7 @@ Implementation using C or pyhton code
 Testing algorithm with different key values. 
 
 ## PROGRAM:
-```
+```python
 ## Encryption:
 
 def caesar_cipher(text, shift):
