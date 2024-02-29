@@ -23,7 +23,7 @@ Implementation using C or pyhton code
 Testing algorithm with different key values. 
 
 ## PROGRAM:
-'''
+```
 #include<stdio.h>
 #include <string.h>
 #include<conio.h>
@@ -60,7 +60,7 @@ printf("%c",plain[i]);
 }
 return 0;
 }
-'''
+```
 ## OUTPUT:
 ![Screenshot 2024-02-29 180234](https://github.com/sanjay3061/Cryptography---19CS412-classical-techqniques/assets/121215929/e5aae082-5a84-432a-8f5a-3f66391ccf55)
 
@@ -91,6 +91,7 @@ Implementation using C or pyhton code
 Testing algorithm with different key values. 
 
 ## PROGRAM:
+```
 #include<stdio.h>
 #include<conio.h>
 #include<string.h>
@@ -215,6 +216,7 @@ i++;
 }
 return 0;
 }
+```
 ## OUTPUT:
 ![image](https://github.com/sanjay3061/Cryptography---19CS412-classical-techqniques/assets/121215929/6352d1fa-db3f-4616-b087-ca9506dbfcda)
 
@@ -246,6 +248,7 @@ Implementation using C or pyhton code
 Testing algorithm with different key values. 
 
 ## PROGRAM:
+```
 #include<stdio.h>
 #include<conio.h>
 #include<string.h>
@@ -290,6 +293,7 @@ printf(" %c",c[i]+65);
 getch();
 return 0;
 }
+```
 ## OUTPUT:
 ![Screenshot 2024-02-29 181124](https://github.com/sanjay3061/Cryptography---19CS412-classical-techqniques/assets/121215929/4b655394-b915-41cb-b26e-d34eda805007)
 
@@ -320,6 +324,7 @@ Implementation using C or pyhton code
 Testing algorithm with different key values. 
 
 ## PROGRAM:
+```
 #include <stdio.h>
 #include<conio.h>
 #include <ctype.h>
@@ -381,6 +386,7 @@ printf("%c",65 + (value % 26));
 }
 return 0;
 }
+```
 ## OUTPUT:
 ![image](https://github.com/sanjay3061/Cryptography---19CS412-classical-techqniques/assets/121215929/28df34bd-9b1d-4781-a9d0-89b6be2ffcd8)
 
@@ -411,6 +417,7 @@ Implementation using C or pyhton code
 Testing algorithm with different key values. 
 
 ## PROGRAM:
+```
 #include<stdio.h>
 #include<conio.h>
 #include<string.h>
@@ -456,6 +463,7 @@ printf("\nText after decryption : ");
 printf("%s",d);
 return 0;
 }
+```
 ## OUTPUT:
 ![image](https://github.com/sanjay3061/Cryptography---19CS412-classical-techqniques/assets/121215929/f7288e4f-f7bd-489f-ba7d-566c094f23ee)
 
