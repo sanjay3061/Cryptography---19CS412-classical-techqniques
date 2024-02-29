@@ -112,7 +112,7 @@ Implementation using C or pyhton code
 Testing algorithm with different key values. 
 
 ## PROGRAM:
-```
+```python
 
 def prepare_text(text):
     text = text.replace(" ", "").upper()
@@ -231,7 +231,7 @@ Implementation using C or pyhton code
 Testing algorithm with different key values. 
 
 ## PROGRAM:
-```
+```python
 import numpy as np
 
 def generate_key_matrix(key):
@@ -324,7 +324,7 @@ Implementation using C or pyhton code
 Testing algorithm with different key values. 
 
 ## PROGRAM:
-```
+```python
 
 ## ENCRYPTION
 
@@ -403,7 +403,7 @@ Implementation using C or pyhton code
 Testing algorithm with different key values. 
 
 ## PROGRAM:
-```
+```python
 
 ## ENCRYPTION
 
