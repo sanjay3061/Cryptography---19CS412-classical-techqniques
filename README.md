@@ -326,9 +326,55 @@ Testing algorithm with different key values.
 ## PROGRAM:
 ```
 
+## ENCRYPTION
+
+def vigenere_encrypt(plain_text, key):
+    key = key.upper()
+    encrypted_text = ""
+    key_index = 0
+    for char in plain_text:
+        if char.isalpha():
+            shift = ord(key[key_index % len(key)]) - ord('A')
+            if char.islower():
+                encrypted_char = chr((ord(char) - ord('a') + shift) % 26 + ord('a'))
+            else:
+                encrypted_char = chr((ord(char) - ord('A') + shift) % 26 + ord('A'))
+            encrypted_text += encrypted_char
+            key_index += 1
+        else:
+            encrypted_text += char
+    return encrypted_text
+
+## DECRYPTION
+
+def vigenere_decrypt(encrypted_text, key):
+    key = key.upper()
+    decrypted_text = ""
+    key_index = 0
+    for char in encrypted_text:
+        if char.isalpha():
+            shift = ord(key[key_index % len(key)]) - ord('A')
+            if char.islower():
+                decrypted_char = chr((ord(char) - ord('a') - shift + 26) % 26 + ord('a'))
+            else:
+                decrypted_char = chr((ord(char) - ord('A') - shift + 26) % 26 + ord('A'))
+            decrypted_text += decrypted_char
+            key_index += 1
+        else:
+            decrypted_text += char
+    return decrypted_text
+
+plain_text = "SANJAY"
+key = "cipher"
+encrypted_text = vigenere_encrypt(plain_text, key)
+print("Original Text:", plain_text)
+print("Encrypted Text:", encrypted_text)
+
+decrypted_text = vigenere_decrypt(encrypted_text, key)
+print("Decrypted Text:", decrypted_text)
 ```
 ## OUTPUT:
-![image](https://github.com/sanjay3061/Cryptography---19CS412-classical-techqniques/assets/121215929/28df34bd-9b1d-4781-a9d0-89b6be2ffcd8)
+![image](https://github.com/sanjay3061/Cryptography---19CS412-classical-techqniques/assets/121215929/7ca3a140-289e-44cc-b581-a5bd269ae350)
 
 ## RESULT:
 The program is executed successfully
