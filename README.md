@@ -82,6 +82,12 @@ shift = 3
 decrypted_text = caesar_decrypt(encrypted_text, shift)
 print("Decrypted Text:", decrypted_text)
 ```
+
+
+
+
+
+
 ## OUTPUT:
 ![image](https://github.com/sanjay3061/Cryptography---19CS412-classical-techqniques/assets/121215929/86cceaf4-129a-4751-aa56-dc9f6249d828)
 
